@@ -18,18 +18,23 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import us.hyalen.initial.service.AuthenticationService;
 import us.hyalen.initial.service.LocationService;
 import us.hyalen.initial.web.LocationController;
 
-@ActiveProfiles({"test", "dev"})
+@ActiveProfiles({"test"})
 @RunWith(SpringRunner.class)
-@WebMvcTest(controllers = LocationController.class, excludeAutoConfiguration = SecurityAutoConfiguration.class)
+@WebMvcTest(controllers = LocationController.class)
+// @WebMvcTest(controllers = LocationController.class, excludeAutoConfiguration = SecurityAutoConfiguration.class)
 public class LocationControllerUnitTest {
     @Autowired
     private MockMvc mockMvc;
 
     @MockBean
     LocationService locationService;
+
+    @MockBean
+    AuthenticationService authenticationService;
 
     @Test
     public void getAllLocations() throws Exception {

@@ -7,14 +7,17 @@ In this small project I'm using Spring (Boot, Security, MVC, ...) and Unit/Integ
   - Security
   - Test Security
 
-- localhost:8080/h2, to access H2 InMemory DB
+- Database - localhost:8080/h2, to access H2 InMemory DB
   - UserName - sa
   - Password - blank
+  
+- Documentation - http://localhost:8080/swagger-ui.html
   
 - Spring Security
   - login: user
     
 - Dependencies
+  - Swagger
   - Spring HATEOAS
   - Spring Web
   - Spring Security

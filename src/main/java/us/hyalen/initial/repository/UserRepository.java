@@ -7,6 +7,6 @@ import us.hyalen.initial.entity.User;
 
 @Repository
 public interface UserRepository extends CrudRepository<User, Long> {
-    @Query("SELECT * FROM User usr WHERE usr.username = :username")
+    @Query("SELECT usr FROM User usr WHERE usr.username = :username")
     User findUserByUsername(String username);
 }

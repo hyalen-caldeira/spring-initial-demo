@@ -1,7 +1,9 @@
 package us.hyalen.initial.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
+import org.springframework.core.env.Environment;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -25,13 +27,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    @Profile("prod")
     protected void configure(AuthenticationManagerBuilder auth) {
         auth.authenticationProvider(this.authenticationService);
     }
 
     @Override
-    @Profile("prod")
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
@@ -52,8 +52,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 );
     }
 
+    // This configuration enable all access while testing (without need of credential validation)
+    // Should be removed
     @Override
-    @Profile("test")
     public void configure(WebSecurity http) throws Exception {
         http.ignoring().antMatchers("/**");
     }

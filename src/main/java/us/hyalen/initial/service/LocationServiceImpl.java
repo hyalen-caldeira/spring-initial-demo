@@ -2,7 +2,7 @@ package us.hyalen.initial.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import us.hyalen.initial.Exception.LocationNameNotFoundException;
+import us.hyalen.initial.exception.LocationNameNotFoundException;
 import us.hyalen.initial.entity.Location;
 import us.hyalen.initial.repository.LocationRepository;
 

@@ -5,7 +5,6 @@ import us.hyalen.initial.entity.Location;
 
 import java.util.List;
 
-@Service
 public interface LocationService {
     List<Location> retrieveLocations();
     List<String> findAllNames();
