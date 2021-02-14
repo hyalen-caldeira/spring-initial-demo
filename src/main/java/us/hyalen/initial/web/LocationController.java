@@ -29,7 +29,7 @@ public class LocationController {
         this.locationService = locationService;
     }
 
-    @GetMapping()
+    @GetMapping
     public ResponseEntity<List<Location>> getAllLocations() {
         List<Location> list = locationService.retrieveLocations();
 
